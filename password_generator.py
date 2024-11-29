@@ -22,8 +22,15 @@ def generate_password(length=12, use_letters=True, use_numbers=True, use_symbols
         return "Error: Please select at least one character type!"
     
     # Generate password
-    password = ''.join(random.choice(char_pool) for _ in range(length))
+    password_characters = []
+
+    for _ in range(length):
+        random_character = random.choice(char_pool)
+        password_characters.append(random_character)
+
+    password = ''.join(password_characters)
     return password
+
 
 def password_strength(password):
     """Rate password strength with a fun message"""
